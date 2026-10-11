@@ -11,11 +11,23 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 // = require leaflet
-// = require leaflet.markercluster
-// = require js-routes
+// = require leaflet.markercluster/dist/leaflet.markercluster
+// = require popper
 // = require jquery
 // = require jquery_ujs
-// = require jquery-ui/autocomplete
+// = require jquery-ui/widgets/autocomplete
 // = require bootstrap-sprockets
 // = require bootstrap-datepicker
 // = require_tree .
+
+document.addEventListener('DOMContentLoaded', function(event) {
+    var popoverTrigger = Array.prototype.slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    popoverTrigger.map(function(popoverTrigger2) {
+        return new bootstrap.Popover(popoverTrigger2);
+    });
+
+    var tooltipTrigger = Array.prototype.slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTrigger.map(function(tooltipTrigger2) {
+        return new bootstrap.Tooltip(tooltipTrigger2);
+    });
+  });
